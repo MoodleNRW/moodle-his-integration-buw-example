@@ -1,0 +1,65 @@
+# 
+# cron examples
+# Copyright (C) 2021-2022 Tim-Florian Reinartz
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+
+#cron file for moodle-rest-cron
+#minute(s) hour(s) day(s)_of_month month(s) day(s)_of_week user command
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+### aktuelles semester mo-sa
+## ab 12 Uhr
+#start.sh vor den anderen aufrufen ausführen dauert etwa 1 Minute
+
+# vor kurse create
+10 12 * * 1-6 root cd /opt/moodle-rest-cron && ./start.sh >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+#kurse.sh create dauert etwa 2 Stunden
+15 12 * * 1-6 root cd /opt/moodle-rest-cron && ./kurse.sh create >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+
+
+# vor person create
+35 14 * * 1-6 root cd /opt/moodle-rest-cron && ./start.sh >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+#person.sh create dauert etwa 2 Stunden
+40 14 * * 1-6 root cd /opt/moodle-rest-cron && ./person.sh create >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+
+
+# vor kurse check
+55 16 * * 1-6 root cd /opt/moodle-rest-cron && ./start.sh >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+#kurse.sh check create dauert etwa 1 Stunden
+0 17 * * 1-6 root cd /opt/moodle-rest-cron && ./kurse.sh check >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+
+### aktuelles semester mo-sa
+## ab 0 Uhr
+#start.sh vor den anderen aufrufen ausführen dauert etwa 1 Minute
+
+# vor kurse create
+10 0 * * 1-6 root cd /opt/moodle-rest-cron && ./start.sh >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+#kurse.sh create dauert etwa 2 Stunden
+15 0 * * 1-6 root cd /opt/moodle-rest-cron && ./kurse.sh create >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+
+
+# vor person create
+35 2 * * 1-6 root cd /opt/moodle-rest-cron && ./start.sh >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+#person.sh create dauert etwa 2 Stunden
+40 2 * * 1-6 root cd /opt/moodle-rest-cron && ./person.sh create >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+
+
+# vor kurse check
+55 4 * * 1-6 root cd /opt/moodle-rest-cron && ./start.sh >> /var/www/html/moodle-rest/global/log/cron.log 2>&1
+#kurse.sh check create dauert etwa 1 Stunden
+0 5 * * 1-6 root cd /opt/moodle-rest-cron && ./kurse.sh check >> /var/www/html/moodle-rest/global/log/cron.log 2>&1

@@ -1,0 +1,7 @@
+/var/www/html/moodle-rest/global/log/cron.log {
+        daily
+        copytruncate
+        dateext
+        compress
+        maxage 60
+}
