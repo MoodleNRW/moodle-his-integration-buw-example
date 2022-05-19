@@ -4,7 +4,7 @@ Teile des Moodle-HIS-Projekts der [Bergischen Universität Wuppertal (BUW)](http
 
 ## Achtung
 
-Jede Uni nutzt HISinOne und Moodle anders. Dies ist eine mögliche Implementierung, die an der Bergische Universität Wuppertal (BUW) funktioniert.
+Jede Uni nutzt HISinOne und Moodle anders. Dies ist eine mögliche Implementierung, die an der Bergischen Universität Wuppertal (BUW) funktioniert.
 
 ## Lizenz
 
